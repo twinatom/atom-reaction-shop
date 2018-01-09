@@ -572,5 +572,22 @@ describe("Account Meteor method ", function () {
 
       return done();
     });
+
+    it("creates a shop with the data provided", function () {
+      const name = Random.id();
+      const shopData = {
+        name: name
+      };
+
+      sandbox.stub(Reaction, "hasPermission", () => true);
+
+      Meteor.call("accounts/inviteShopOwner", {
+        email: "custom1@email.co",
+        name: "custom name"
+      }, shopData);
+
+      const newShopCount = Shops.find({ name }).count();
+      expect(newShopCount).to.equal(1);
+    });
   });
 });
