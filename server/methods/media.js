@@ -5,8 +5,15 @@ import { Media } from "/lib/collections";
 import { Reaction } from "/server/api";
 
 /**
- * removeMedia
- * @summary remove media from mongodb collection
+ * @file Server methods for Media.
+ *
+ *
+ * @namespace Media
+*/
+
+/**
+ * @method removeMedia
+ * @summary remove media from MongoDB collection
  * @type {ValidatedMethod}
  * @param {String} mediaId - media _id
  * @return {Error|Undefined} object with error or nothing
@@ -25,7 +32,7 @@ export const removeMedia = new ValidatedMethod({
 });
 
 /**
- * updateMediaPriorities
+ * @method updateMediaPriorities
  * @summary sorting media by array indexes
  * @type {ValidatedMethod}
  * @param {Array} sortedMedias - array with images _ids
