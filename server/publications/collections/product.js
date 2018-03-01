@@ -4,11 +4,11 @@ import { Media, Products, Revisions, Shops } from "/lib/collections";
 import { Logger, Reaction } from "/server/api";
 import { RevisionApi } from "/imports/plugins/core/revisions/lib/api/revisions";
 
-
 /**
- * Helper function that creates and returns a Cursor of Media for relevant
- * products to a publication
  * @method findProductMedia
+ * @memberof Media
+ * @summary Helper function that creates and returns a Cursor of Media for relevant
+ * products to a publication
  * @param {Object} publicationInstance instance of the publication that invokes this method
  * @param {array} productIds array of productIds
  * @return {Object} Media Cursor containing the product media that matches the selector
