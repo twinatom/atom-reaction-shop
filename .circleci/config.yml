@@ -49,28 +49,7 @@ jobs:
       - setup_remote_docker
       - attach_workspace:
           at: docker-cache
-      - run:
-          name: Discover Docker Tags
-          command: |
-            mkdir -p docker-cache
-            .circleci/bin/docker-tags "$CIRCLE_SHA1" "$CIRCLE_BRANCH" | sed 's/\//-/g' \
-              > docker-cache/docker-tags.txt
-      - run:
-          name: Docker build
-          command: |
-            docker build \
-              --build-arg TOOL_NODE_FLAGS="--max-old-space-size=4096" \
-              -t "$DOCKER_REPOSITORY:$CIRCLE_SHA1" .
-            mkdir -p docker-cache
-            docker save \
-              -o docker-cache/docker-image.tar \
-              "$DOCKER_REPOSITORY:$CIRCLE_SHA1"
-          no_output_timeout: 30m
-      - persist_to_workspace:
-          root: docker-cache
-          paths:
-            - docker-image.tar
-            - docker-tags.txt
+      - run: echo "Test"
 
   docker-push:
     <<: *defaults
@@ -150,23 +129,18 @@ jobs:
       - setup_remote_docker
       - attach_workspace:
           at: docker-cache
-      - run:
-          name: Load Test Docker Image
-          command: |
-            docker load < docker-cache/docker-dev-image.tar
-      - run:
-          name: Run tests
-          command: |
-            docker run \
-              -e "TOOL_NODE_FLAGS=--max-old-space-size=4096" \
-              "$DOCKER_REPOSITORY:$CIRCLE_SHA1-dev" \
-              sh -c "reaction test"
+      - run: echo "Test"
 
 workflows:
   version: 2
   build_and_test:
     jobs:
+      - test
+      - docker-build
       - deploy-docs:
+          requires:
+            - test
+            - docker-build
           filters:
             branches:
               only: /^master$/
