@@ -135,12 +135,4 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - test
-      - docker-build
-      - deploy-docs:
-          requires:
-            - test
-            - docker-build
-          filters:
-            branches:
-              only: /^master$/
+      - deploy-docs
