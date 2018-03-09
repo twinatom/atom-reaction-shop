@@ -141,6 +141,3 @@ workflows:
           requires:
             - test
             - docker-build
-          filters:
-            branches:
-              only: /^master$/
