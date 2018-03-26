@@ -178,6 +178,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "start": "node index.js",
     "test": "npm run test:unit && npm run test:app",
     "test:app": "meteor test --once --full-app --driver-package meteortesting:mocha",
     "test:app:watch": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
