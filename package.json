@@ -179,6 +179,7 @@
   },
   "scripts": {
     "start": "node ./.twinatom/boot/index.js",
+    "start:dev": "node ./.twinatom/boot/index.js env=dev",
     "install:plugins": "node ./.twinatom/boot/install-plugins.js",
     "lint": "eslint .",
     "test": "npm run test:unit && npm run test:app",
