@@ -1,4 +1,4 @@
-const environment = require('./environment');
+const environment = require('../environment');
 const { spawn } = require('child_process');;
 const laundCmd = /^win/.test(process.platform) ? 'reaction.cmd' : 'reaction';
 const cwd = process.cwd();

@@ -2,9 +2,6 @@
     [{
         "name": "core",
         "enabled": true,
-        "env": {
-            "OMG": 1
-        },
         "settings": {
             "public": {
                 "allowGuestCheckout": true

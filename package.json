@@ -30,7 +30,6 @@
     "authorize-net": "^1.1.1",
     "autoprefixer": "^7.2.5",
     "autosize": "^4.0.0",
-    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
     "braintree": "^2.7.0",
@@ -89,7 +88,6 @@
     "prop-types": "^15.6.0",
     "query-parse": "^2.0.0",
     "radium": "^0.22.0",
-    "ramda": "^0.25.0",
     "react": "16.2.0",
     "react-addons-create-fragment": "15.6.2",
     "react-addons-pure-render-mixin": "15.6.2",
@@ -178,7 +176,6 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node index.js",
     "test": "npm run test:unit && npm run test:app",
     "test:app": "meteor test --once --full-app --driver-package meteortesting:mocha",
     "test:app:watch": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
